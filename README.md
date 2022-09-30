@@ -4,7 +4,7 @@
 
 #### Using HTML, CSS and JavaScript.
 
-### <details Instructions>
+<details>
 <summany>Instructions</summary >
 
 <ol>
