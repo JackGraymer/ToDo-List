@@ -101,7 +101,7 @@ nav>div{
     border-radius: 0.3em;
     transition: 200ms ;
 }
-.navbutton:hover{
+button:hover{
     cursor: pointer;
     transform:scale(105%);
     background-color: rgba(100, 100, 100, 0.5);
@@ -127,10 +127,28 @@ nav>div{
     background-color: rgb(255, 255, 255, 0.1);
 }
 
-.title{
-    text-align: center;
+#title{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
     font-size: 20pt;
     padding: 0.5em;
+}
+
+.projectdel{
+    padding: 0;
+    width: 3em;
+    height: 3em;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    border: none;
+    border-radius: 50%;
+}
+#projectDelIco{
+    padding: 0;
+    width: 100%;
 }
 
 footer{

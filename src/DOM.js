@@ -1,5 +1,14 @@
 import darkimg from './img/dark-btn.png'
 import githubicon from './img/github.png'
+import deleteicon from "./img/delete.png"
+import projects from './project'
+import favicon from './img/favicon.png'
+
+function setFavIcon(){
+    let icon = document.querySelector('#favicon')
+    icon.href = favicon
+}
+setFavIcon()
 
 function header() {//Sets Icon from dark theme
     let darkicon = document.querySelector('#dark-icon')
@@ -20,3 +29,8 @@ function footer(){ //sets the github icon link
 }
 footer()
 
+function deleteProjectIcon(){
+    let deleteIcon = document.querySelector('#projectDelIco')
+    deleteIcon.src=deleteicon
+}
+deleteProjectIcon()
