@@ -1,4 +1,6 @@
 import './style.css'
-import header from './DOM'
+import {header, footer} from './DOM'
 
-header()
+//header()
+
+//footer()

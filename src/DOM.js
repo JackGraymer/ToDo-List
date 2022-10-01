@@ -1,6 +1,7 @@
 import darkimg from './img/dark-btn.png'
+import githubicon from './img/github.png'
 
-function header() {
+function header() {//Sets Icon from dark theme
     let darkicon = document.querySelector('#dark-icon')
     darkicon.src = darkimg
 
@@ -9,5 +10,13 @@ function header() {
         document.body.classList.toggle('dark-mode')
     })
 }
+header()
 
-export default header
+
+
+function footer(){ //sets the github icon link
+    let github = document.querySelector('#github')
+    github.src=githubicon
+}
+footer()
+

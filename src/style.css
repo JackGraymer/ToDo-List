@@ -80,6 +80,20 @@ nav{
 }
 
 footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-area: footer;
     background-color: rgba(0, 0, 0, 0.1);
+}
+footer>a{
+    padding: 1em;
+}
+footer>a>img{
+    padding: 0;
+    width: 2em;
+    transition: 300ms;
+}
+footer>a>img:hover{
+    transform: rotate(360deg) scale(1.3);
 }
