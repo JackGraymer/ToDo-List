@@ -30,12 +30,25 @@ function createButtonList(){
     });
 }
 
-document.querySelector('#add').addEventListener('click', () => {//Adds new project to the list
+document.querySelector('#add').addEventListener('click', () => {
+    //Adds new project to the list
     let title = document.querySelector('#newProjectName')
     if (title.value !== ''){
         createProject();
         updateProjects();     
         createButtonList() 
+
+    }
+})
+
+document.querySelector('#newProjectName').addEventListener('keydown', () => {
+    if(event.key === 'Enter'){
+        let title = document.querySelector('#newProjectName')
+        if (title.value !== ''){
+            createProject();
+            updateProjects();     
+            createButtonList() 
+        }   
     }
 })
 
