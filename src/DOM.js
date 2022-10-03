@@ -1,7 +1,7 @@
 import darkimg from './img/dark-btn.png'
 import githubicon from './img/github.png'
 import deleteicon from "./img/delete.png"
-import {projectsList, createProject, updateProjects,} from './project'
+import {projectsList, createProject, updateProjects, chooseProject} from './project'
 import favicon from './img/favicon.png'
 
 function setFavIcon(){
@@ -25,12 +25,12 @@ function createButtonList(){
     let projectButtons = document.querySelectorAll('.projects>button')
     projectButtons.forEach(element => {
         element.addEventListener('click', () => {
-        console.log(event.target.textContent)
+        populateContent()
         })   
     });
 }
 
-document.querySelector('#add').addEventListener('click', () => {
+document.querySelector('#add').addEventListener('click', () => {//Adds new project to the list
     let title = document.querySelector('#newProjectName')
     if (title.value !== ''){
         createProject();
@@ -39,14 +39,40 @@ document.querySelector('#add').addEventListener('click', () => {
     }
 })
 
+function populateContent(){//Sets content of the project on the main container
+    let currentProject = chooseProject()
+    let title = document.querySelector('#title')
+    title.textContent = currentProject.title
+    console.log()
+
+}
+
+
+
 function footer(){ //sets the github icon link
     let github = document.querySelector('#github')
     github.src=githubicon
 }
 footer()
 
+let deleteIcon = document.querySelector('#projectDelIco')
+
 function deleteProjectIcon(){
-    let deleteIcon = document.querySelector('#projectDelIco')
+    
     deleteIcon.src=deleteicon
 }
 deleteProjectIcon()
+
+deleteIcon.addEventListener('click', () => {
+    let chosenIndex = projectsList.findIndex(x => x.title == title.textContent)
+     if (chosenIndex !== -1){
+        
+        projectsList.splice(chosenIndex, 1)
+        console.log(projectsList)
+        updateProjects()
+        createButtonList()
+        title.textContent = 'No Project Selected!'
+    } 
+    
+})
+    

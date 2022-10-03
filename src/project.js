@@ -2,7 +2,8 @@ let projectsList = [];
 
 function project (title,details){
     this.title = title;
-    this.details = details;
+    this.details = '';
+    this.todo = []
     projectsList.push(this)
 
 }
@@ -15,13 +16,14 @@ let title = document.querySelector('#newProjectName')
 function createProject(){
 
     new project(title.value)
-    document.querySelector('.projects').textContent = 'Projects'
+    //document.querySelector('.projects').textContent = 'Projects'
     title.value = ''
     
 console.log(projectsList)
 }
 
 function updateProjects(){
+    document.querySelector('.projects').textContent = 'Projects'
     projectsList.forEach(project => {
         let button = document.createElement('button');
         button.classList.add('navbutton')
@@ -31,10 +33,17 @@ function updateProjects(){
     })
 }
 
+function chooseProject(){
+    let currentProject = projectsList.find(project => project.title === event.target.textContent)
+    console.log(currentProject)
+    return currentProject
+}
+
 updateProjects()
 
 export {
     projectsList,
     createProject,
     updateProjects,
+    chooseProject,
 }
