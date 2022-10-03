@@ -10,14 +10,36 @@ let jimmi = new project('test1')
 
 let sicarios = new project('satanology')
 
-console.log(projectsList)
+let title = document.querySelector('#newProjectName')
 
 function createProject(){
-    let button = document.createElement('button');
-    button.classList.add('navbutton')
-    button.textContent = projectsList[0].title
-    document.querySelector('.projects').appendChild(button)
+
+    new project(title.value)
+    document.querySelector('.projects').textContent = 'Projects'
+    title.value = ''
+    
+console.log(projectsList)
 }
-createProject()
+
+function updateProjects(){
+    projectsList.forEach(project => {
+        let button = document.createElement('button');
+        button.classList.add('navbutton')
+        button.textContent = project.title
+        document.querySelector('.projects').appendChild(button)
+        title.value = ''
+    })
+}
+
+document.querySelector('#add').addEventListener('click', () => {
+    
+    if (title.value !== ''){
+
+        createProject();
+        updateProjects();      
+    }
+})
+
+updateProjects()
 
 export {projectsList,}

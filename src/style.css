@@ -90,6 +90,12 @@ nav>div{
     flex-direction: column;
     gap: 0.5em;
 }
+
+.projects{
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+}
 .navbutton{
     width: 100%;
     text-align:justify;
@@ -106,6 +112,13 @@ button:hover{
     transform:scale(105%);
     background-color: rgba(100, 100, 100, 0.5);
 }
+
+input.navbutton:focus{
+    outline: none;
+    outline: 2px solid  rgb(233, 70, 97);
+    transition: 0ms;
+}
+
 #add{
     display: flex;
     background-color: rgb(233, 70, 97);
