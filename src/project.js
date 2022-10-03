@@ -31,15 +31,10 @@ function updateProjects(){
     })
 }
 
-document.querySelector('#add').addEventListener('click', () => {
-    
-    if (title.value !== ''){
-
-        createProject();
-        updateProjects();      
-    }
-})
-
 updateProjects()
 
-export {projectsList,}
+export {
+    projectsList,
+    createProject,
+    updateProjects,
+}
