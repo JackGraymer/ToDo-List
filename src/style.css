@@ -148,6 +148,10 @@ input.navbutton:focus{
     padding: 0;
 }
 
+#todo{
+    soverflow: scroll;
+}
+
 .list{
     background-color: rgb(101, 101, 101, 0.2);
     border-radius: 0.5em;

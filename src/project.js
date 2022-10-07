@@ -7,6 +7,7 @@ function project (title,details){
     projectsList.push(this)
 
 }
+
 let jimmi = new project('Jimmy')
 jimmi.details = 'Jimmy is 13 and likes fortnite'
 
@@ -54,6 +55,16 @@ function updateDetails (){
     actualProject.details = event.target.value
 }
 
+function createTodo(){
+    function todo(title, state){
+        this.title = title
+        this.state = state
+        actualProject.todo.push(this)
+    }
+    new todo(event.target.value, true)
+    event.target.value = ''
+}
+
 export {
     projectsList,
     createProject,
@@ -61,4 +72,5 @@ export {
     chooseProject,
     updateTitle,
     updateDetails,
+    createTodo,
 }

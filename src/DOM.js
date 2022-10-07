@@ -1,7 +1,7 @@
 import darkimg from './img/dark-btn.png'
 import githubicon from './img/github.png'
 import deleteicon from "./img/delete.png"
-import {projectsList, createProject, updateProjects, chooseProject, updateTitle, updateDetails} from './project'
+import {projectsList, createProject, updateProjects, chooseProject, updateTitle, updateDetails, createTodo} from './project'
 import favicon from './img/favicon.png'
 
 function setFavIcon(){
@@ -59,6 +59,25 @@ function populateContent(){//Sets content of the project on the main container
     title.textContent = currentProject.title
     document.querySelector('#detailsInput').value = currentProject.details 
     contentEventsManager()
+
+    currentProject.todo.forEach(element => {
+        //Creating new elements and giving their properties
+        let todoList = document.querySelector('#todo')
+        let ul = document.createElement('ul')
+        ul.classList='list'
+        let button = document.createElement('button')
+        button.classList= 'checkbox'
+        let input = document.createElement('input')
+        input.classList = 'navbutton'
+        input.value = element.title
+        //Append items
+        //todoList.appendChild(ul)
+        todoList.insertBefore(ul, document.querySelector('#todoInput'))
+        ul.appendChild(button)
+        ul.appendChild(input)
+        console.log(todoList,ul)
+    });
+    console.log(currentProject.todo)
 }
 
 function contentEventsManager(){
@@ -66,7 +85,12 @@ function contentEventsManager(){
         updateTitle();
         createButtonList();
     })
-    document.querySelector('#detailsInput').addEventListener('focusout', updateDetails)
+    document.querySelector('#detailsInput').addEventListener('focusout', updateDetails);
+    document.querySelector('#todoInput').addEventListener('keydown', () => {
+        if(event.key ==='Enter' && document.querySelector('#todoInput').value !==''){
+            createTodo()
+        }
+    })
 }
 
 function footer(){ //sets the github icon link
