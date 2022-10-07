@@ -36,15 +36,29 @@ function updateProjects(){
 
 function chooseProject(){
     let currentProject = projectsList.find(project => project.title === event.target.textContent)
-    console.log(currentProject)
+    actualProject = currentProject;
+    console.log('actual project is ' + actualProject.title)
     return currentProject
 }
 
+let actualProject = ''
+
 updateProjects()
+
+function updateTitle(){
+    actualProject.title = event.target.textContent
+    updateProjects()
+}
+
+function updateDetails (){
+    actualProject.details = event.target.value
+}
 
 export {
     projectsList,
     createProject,
     updateProjects,
     chooseProject,
+    updateTitle,
+    updateDetails,
 }

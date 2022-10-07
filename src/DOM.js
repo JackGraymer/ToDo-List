@@ -1,7 +1,7 @@
 import darkimg from './img/dark-btn.png'
 import githubicon from './img/github.png'
 import deleteicon from "./img/delete.png"
-import {projectsList, createProject, updateProjects, chooseProject} from './project'
+import {projectsList, createProject, updateProjects, chooseProject, updateTitle, updateDetails} from './project'
 import favicon from './img/favicon.png'
 
 function setFavIcon(){
@@ -58,12 +58,15 @@ function populateContent(){//Sets content of the project on the main container
     let title = document.querySelector('#title')
     title.textContent = currentProject.title
     document.querySelector('#detailsInput').value = currentProject.details 
-    console.log()
     contentEventsManager()
 }
 
 function contentEventsManager(){
-    console.log('this')
+    document.querySelector('#title').addEventListener('focusout', () => {
+        updateTitle();
+        createButtonList();
+    })
+    document.querySelector('#detailsInput').addEventListener('focusout', updateDetails)
 }
 
 function footer(){ //sets the github icon link
