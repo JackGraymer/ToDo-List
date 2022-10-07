@@ -7,7 +7,8 @@ function project (title,details){
     projectsList.push(this)
 
 }
-let jimmi = new project('test1')
+let jimmi = new project('Jimmy')
+jimmi.details = 'Jimmy is 13 and likes fortnite'
 
 let sicarios = new project('satanology')
 
@@ -47,4 +48,3 @@ export {
     updateProjects,
     chooseProject,
 }
-

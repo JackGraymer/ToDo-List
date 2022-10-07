@@ -29,6 +29,7 @@ function createButtonList(){
         })   
     });
 }
+createButtonList()
 
 document.querySelector('#add').addEventListener('click', () => {
     //Adds new project to the list
@@ -56,11 +57,14 @@ function populateContent(){//Sets content of the project on the main container
     let currentProject = chooseProject()
     let title = document.querySelector('#title')
     title.textContent = currentProject.title
+    document.querySelector('#detailsInput').value = currentProject.details 
     console.log()
-
+    contentEventsManager()
 }
 
-
+function contentEventsManager(){
+    console.log('this')
+}
 
 function footer(){ //sets the github icon link
     let github = document.querySelector('#github')

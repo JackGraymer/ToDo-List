@@ -140,6 +140,39 @@ input.navbutton:focus{
     background-color: rgb(255, 255, 255, 0.1);
 }
 
+#content>div{
+    padding-bottom: 0;
+}
+
+#content>div>h3{
+    padding: 0;
+}
+
+.list{
+    background-color: rgb(101, 101, 101, 0.2);
+    border-radius: 0.5em;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.5em;
+    padding: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
+    border: solid 2px rgb(233, 70, 97);
+    border-radius: 0.1em;
+    background-color: inherit;
+    font-size: 2em;
+    overflow: wrap;
+    color: inherit;
+}
+
 .title{
     display: flex;
     position: relative;
