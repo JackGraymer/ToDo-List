@@ -1,7 +1,7 @@
 import darkimg from './img/dark-btn.png'
 import githubicon from './img/github.png'
 import deleteicon from "./img/delete.png"
-import {projectsList, createProject, updateProjects, chooseProject, updateTitle, updateDetails, createTodo} from './project'
+import {projectsList, createProject, updateProjects, chooseProject, actualProject, updateTitle, updateDetails, createTodo} from './project'
 import favicon from './img/favicon.png'
 
 function setFavIcon(){
@@ -52,15 +52,27 @@ document.querySelector('#newProjectName').addEventListener('keydown', () => {
         }   
     }
 })
-
 function populateContent(){//Sets content of the project on the main container
     let currentProject = chooseProject()
     let title = document.querySelector('#title')
     title.textContent = currentProject.title
     document.querySelector('#detailsInput').value = currentProject.details 
-    contentEventsManager()
+    contentEventsManager();
 
-    currentProject.todo.forEach(element => {
+    updateTodos()
+}
+
+function clearTodos(){
+    document.querySelectorAll('.list').forEach(ul => {
+        if(ul.classList == 'list'){
+            ul.remove()
+        }
+    });
+    console.log(actualProject)
+}
+
+function createTodoList(){
+    actualProject.todo.forEach(element => {
         //Creating new elements and giving their properties
         let todoList = document.querySelector('#todo')
         let ul = document.createElement('ul')
@@ -71,13 +83,15 @@ function populateContent(){//Sets content of the project on the main container
         input.classList = 'navbutton'
         input.value = element.title
         //Append items
-        //todoList.appendChild(ul)
         todoList.insertBefore(ul, document.querySelector('#todoInput'))
         ul.appendChild(button)
         ul.appendChild(input)
-        console.log(todoList,ul)
     });
-    console.log(currentProject.todo)
+}
+
+function updateTodos(){
+    clearTodos();
+    createTodoList()
 }
 
 function contentEventsManager(){
@@ -88,7 +102,8 @@ function contentEventsManager(){
     document.querySelector('#detailsInput').addEventListener('focusout', updateDetails);
     document.querySelector('#todoInput').addEventListener('keydown', () => {
         if(event.key ==='Enter' && document.querySelector('#todoInput').value !==''){
-            createTodo()
+            createTodo();
+            updateTodos();
         }
     })
 }
@@ -115,7 +130,9 @@ deleteIcon.addEventListener('click', () => {
         console.log(projectsList)
         updateProjects()
         createButtonList()
+        clearTodos()
         title.textContent = 'No Project Selected!'
+        document.querySelector('#detailsInput').value = ''
     } 
     
 })

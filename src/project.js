@@ -70,6 +70,7 @@ export {
     createProject,
     updateProjects,
     chooseProject,
+    actualProject,
     updateTitle,
     updateDetails,
     createTodo,
