@@ -35,14 +35,15 @@ function updateProjects(){
     })
 }
 
+
+let actualProject = ''
+
 function chooseProject(){
     let currentProject = projectsList.find(project => project.title === event.target.textContent)
     actualProject = currentProject;
     console.log('actual project is ' + actualProject.title)
     return currentProject
 }
-
-let actualProject = ''
 
 updateProjects()
 

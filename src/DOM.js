@@ -3,6 +3,7 @@ import githubicon from './img/github.png'
 import deleteicon from "./img/delete.png"
 import {projectsList, createProject, updateProjects, chooseProject, actualProject, updateTitle, updateDetails, createTodo} from './project'
 import favicon from './img/favicon.png'
+import checkTodo from './todo'
 
 function setFavIcon(){
     let icon = document.querySelector('#favicon')
@@ -90,7 +91,7 @@ function createTodoList(){
 }
 
 function createTodoInputListener(){
-    document.querySelectorAll('.list').forEach(element => {
+    document.querySelectorAll('.listInput').forEach(element => {
         element.addEventListener('focusout', todoInputUpdate)
     });
 
@@ -102,13 +103,20 @@ function todoInputUpdate(){
     let i = todoList.indexOf(event.target)
     console.log(actualProject.todo[i], i, event.target.value)
     actualProject.todo[i].title = event.target.value
-
 } 
+
+function checkBoxListener(){
+    let checkboxes = document.querySelectorAll('.checkbox');
+    checkboxes.forEach(element => {
+        element.addEventListener('click', checkTodo)})
+
+}
 
 function updateTodos(){
     clearTodos();
     createTodoList();
     createTodoInputListener()
+    checkBoxListener()
 }
 
 function contentEventsManager(){
