@@ -3,7 +3,7 @@ import githubicon from './img/github.png'
 import deleteicon from "./img/delete.png"
 import {projectsList, createProject, updateProjects, chooseProject, actualProject, updateTitle, updateDetails, createTodo} from './project'
 import favicon from './img/favicon.png'
-import checkTodo from './todo'
+import {checkTodo, deleteTodo} from './todo'
 
 function setFavIcon(){
     let icon = document.querySelector('#favicon')
@@ -121,11 +121,18 @@ function checkBoxListener(){
 
 }
 
+function todoDeleteListener(){
+    document.querySelectorAll('.todoDelBtn').forEach(element => {
+        element.addEventListener('click', deleteTodo)
+    });
+}
+
 function updateTodos(){
     clearTodos();
     createTodoList();
     createTodoInputListener()
     checkBoxListener()
+    todoDeleteListener()
 }
 
 function contentEventsManager(){

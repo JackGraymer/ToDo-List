@@ -12,4 +12,11 @@ function checkTodo(event){
     updateTodos()
 }
 
-export default checkTodo
+function deleteTodo(){
+    let delButtons = Array.from(document.querySelectorAll('.todoDelBtn'))
+    let i= delButtons.indexOf(event.target)
+    actualProject.todo.splice(i, 1)
+    updateTodos()
+}
+
+export {checkTodo, deleteTodo}

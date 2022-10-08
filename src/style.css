@@ -179,7 +179,8 @@ input.navbutton:focus{
 }
 
 .todoDelBtn{
-    background-color: inherit;
+    background-color: transparent;
+    border-radius: 0.2em;
     height: 1.5em;
     width: 1.5em;
     padding: 0;
