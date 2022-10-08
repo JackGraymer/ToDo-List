@@ -68,7 +68,7 @@ function clearTodos(){
             ul.remove()
         }
     });
-    console.log(actualProject)
+    console.log('cleatTodos()', actualProject)
 }
 
 function createTodoList(){
@@ -80,7 +80,7 @@ function createTodoList(){
         let button = document.createElement('button')
         button.classList= 'checkbox'
         let input = document.createElement('input')
-        input.classList = 'navbutton'
+        input.classList = 'navbutton listInput'
         input.value = element.title
         //Append items
         todoList.insertBefore(ul, document.querySelector('#todoInput'))
@@ -89,9 +89,26 @@ function createTodoList(){
     });
 }
 
+function createTodoInputListener(){
+    document.querySelectorAll('.list').forEach(element => {
+        element.addEventListener('focusout', todoInputUpdate)
+    });
+
+}
+
+function todoInputUpdate(){
+    let list = ( document.querySelectorAll('.listInput'))
+    let todoList = Array.from(list)
+    let i = todoList.indexOf(event.target)
+    console.log(actualProject.todo[i], i, event.target.value)
+    actualProject.todo[i].title = event.target.value
+
+} 
+
 function updateTodos(){
     clearTodos();
-    createTodoList()
+    createTodoList();
+    createTodoInputListener()
 }
 
 function contentEventsManager(){
@@ -105,8 +122,11 @@ function contentEventsManager(){
             createTodo();
             updateTodos();
         }
-    })
+    }) 
 }
+
+
+
 
 function footer(){ //sets the github icon link
     let github = document.querySelector('#github')
@@ -136,4 +156,6 @@ deleteIcon.addEventListener('click', () => {
     } 
     
 })
-    
+
+//simulates click on the first project element
+document.querySelector('.navbutton').click();

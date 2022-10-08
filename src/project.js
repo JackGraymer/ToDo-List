@@ -61,7 +61,7 @@ function createTodo(){
         this.state = state
         actualProject.todo.push(this)
     }
-    new todo(event.target.value, true)
+    new todo(event.target.value, false)
     event.target.value = ''
 }
 
