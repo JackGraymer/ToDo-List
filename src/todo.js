@@ -1,4 +1,6 @@
+import updateTodos from "./DOM"
 import { actualProject } from "./project"
+
 
 function checkTodo(event){
     let list = Array.from(document.querySelectorAll('.checkbox'))
@@ -7,7 +9,7 @@ function checkTodo(event){
     if(actualProject.todo[i].state === false){
         actualProject.todo[i].state = true
     }else{actualProject.todo[i].state = false}
-    
+    updateTodos()
 }
 
 export default checkTodo

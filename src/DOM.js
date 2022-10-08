@@ -83,10 +83,19 @@ function createTodoList(){
         let input = document.createElement('input')
         input.classList = 'navbutton listInput'
         input.value = element.title
+        let todoDelBtn = document.createElement('button')
+        todoDelBtn.classList = 'todoDelBtn'
+        todoDelBtn.textContent = '❌'
         //Append items
         todoList.insertBefore(ul, document.querySelector('#todoInput'))
         ul.appendChild(button)
         ul.appendChild(input)
+        ul.appendChild(todoDelBtn)
+        console.log(element.state)
+        if(element.state === true){
+            button.textContent = '✓'
+            input.classList.toggle('checked')
+        }
     });
 }
 
@@ -167,3 +176,5 @@ deleteIcon.addEventListener('click', () => {
 
 //simulates click on the first project element
 document.querySelector('.navbutton').click();
+
+export default updateTodos
