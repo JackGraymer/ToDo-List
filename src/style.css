@@ -14,6 +14,8 @@ html, body{
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%;
+    max-height: 100%;
 }
 
 body{
@@ -27,7 +29,6 @@ body{
     ;
     background-color: rgb(201, 201, 201);
     color: rgb(51, 51, 51);
-    height: 100vh;
 }
 
 .dark-mode{
@@ -71,9 +72,11 @@ header{
 }
 
 nav{
+    overflow: auto;
     grid-area: nav;
     padding: 0.5em;
     height: 100%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.2);
     font-size: 20pt;
     display: flex;
@@ -81,7 +84,7 @@ nav{
     flex-direction: column;
     justify-content: space-between;
     gap: 0.5em;
-    
+
 }
 nav>div{
     padding: 0;
@@ -92,9 +95,17 @@ nav>div{
 }
 
 .projects{
+    min-height: 50%;
     height: 100%;
     width: 100%;
     max-height: 100%;
+}
+
+#projects{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 .navbutton{
     width: 100%;
@@ -109,8 +120,11 @@ nav>div{
 }
 button:hover{
     cursor: pointer;
-    transform:scale(105%);
-    background-color: rgba(100, 100, 100, 0.5);
+    background-color: rgba(100, 100, 100, 0.7);
+}
+
+button:active{
+background-color: rgb(233, 70, 97);
 }
 
 input.navbutton:focus{
@@ -128,28 +142,46 @@ input.navbutton:focus{
 }
 
 #main{
+    height: 100%;
     padding: 0;
-    display: grid;
+    display: flex;
     grid-template-rows: auto;
     justify-content: center;
     grid-area: main;
+    overflow: auto;
 }
 
 #content{
-    width: 800px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 20fr;
+    height: 100%;
+    width: 80%;
     background-color: rgb(255, 255, 255, 0.1);
 }
 
 #content>div{
-    padding-bottom: 0;
+    padding-bottom: 1em;
 }
 
 #content>div>h3{
     padding: 0;
 }
 
+#todoTitle{
+    padding: 0 0 0 1em;
+    margin: 0;
+}
+
+#todoTitle>h3{
+    padding: 0;
+    margin: 0;
+}
+
 #todo{
-    soverflow: scroll;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 1em;
+    overflow: auto;
 }
 
 .list{
@@ -159,6 +191,10 @@ input.navbutton:focus{
     padding: 0;
     display: flex;
     align-items: center;
+}
+
+#todoInput{
+    margin-bottom: 1em;
 }
 
 .checkbox{
@@ -202,6 +238,7 @@ input.navbutton:focus{
     font-size: 20pt;
     padding: 0.5em;
 }
+
 p.title{
     max-width: 80%;
     outline: none;
@@ -226,6 +263,7 @@ p.title{
     right: 0;
     border: none;
     border-radius: 50%;
+
 }
 #projectDelIco{
     padding: 0;

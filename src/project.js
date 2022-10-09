@@ -8,8 +8,8 @@ function project (title,details){
 
 }
 
-let first = new project('My first Project!')
-first.details = 'Some details here...'
+let AllTodos = new project('Everything')
+AllTodos.details = 'Some details here...'
 
 let title = document.querySelector('#newProjectName')
 
@@ -23,7 +23,7 @@ console.log(projectsList)
 }
 
 function updateProjects(){
-    document.querySelector('.projects').textContent = 'Projects'
+    document.querySelector('.projects').textContent = ''
     projectsList.forEach(project => {
         let button = document.createElement('button');
         button.classList.add('navbutton')
