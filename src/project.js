@@ -74,7 +74,7 @@ function memoryStorage(){
     function load(){
         projectStorage = localStorage.getItem('projectStorage')
         console.log(projectStorage)
-        if(projectStorage == '[]' /* || projectStorage == null */){
+        if(projectStorage == '[]' || projectStorage == null){
             console.log('loadStop')
             return
         }
