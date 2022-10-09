@@ -1,7 +1,7 @@
 import darkimg from './img/dark-btn.png'
 import githubicon from './img/github.png'
 import deleteicon from "./img/delete.png"
-import {projectsList, createProject, updateProjects, chooseProject, actualProject, updateTitle, updateDetails, createTodo} from './project'
+import {projectsList, createProject, updateProjects, chooseProject, actualProject, updateTitle, updateDetails, createTodo, memoryStorage} from './project'
 import favicon from './img/favicon.png'
 import {checkTodo, deleteTodo} from './todo'
 
@@ -183,5 +183,23 @@ deleteIcon.addEventListener('click', () => {
 
 //simulates click on the first project element
 document.querySelector('.navbutton').click();
+
+//Adds event listener to all document for any changes that
+
+['click', 'focusout', 'keydown'].forEach(evt => {
+    if(evt ==='keydown'){
+        document.addEventListener(evt, () => {
+            if(event.key === 'Enter')
+            memoryStorage().save()
+
+        })
+        
+    }else{
+        document.addEventListener(evt, () => {
+            memoryStorage().save()
+        })
+    }
+    
+});
 
 export default updateTodos

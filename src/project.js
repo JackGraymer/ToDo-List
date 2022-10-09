@@ -64,6 +64,28 @@ function createTodo(){
     event.target.value = ''
 }
 
+function memoryStorage(){
+    let projectStorage = []
+    function save(){
+        projectStorage = JSON.stringify(projectsList)
+        localStorage.setItem('projectStorage', projectStorage)
+    }
+
+    function load(){
+        projectStorage = localStorage.getItem('projectStorage')
+        console.log(projectStorage)
+        if(projectStorage == '[]'){
+            console.log('loadStop')
+            return
+        }
+        projectsList = JSON.parse(projectStorage)
+        updateProjects()
+    }
+    
+    return {save, load, }
+}
+memoryStorage().load()
+
 export {
     projectsList,
     createProject,
@@ -73,4 +95,5 @@ export {
     updateTitle,
     updateDetails,
     createTodo,
+    memoryStorage,
 }
