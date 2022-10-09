@@ -8,8 +8,8 @@ function project (title,details){
 
 }
 
-let AllTodos = new project('Everything')
-AllTodos.details = 'Some details here...'
+let first = new project('My first Project!')
+first.details = 'Some details here...'
 
 let title = document.querySelector('#newProjectName')
 
